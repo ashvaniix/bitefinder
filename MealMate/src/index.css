@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --mealmate-brand: #183b2d;
+  --mealmate-brand-strong: #3e6749;
+  --mealmate-brand-hover: #28533e;
+  --mealmate-accent: #c4df91;
+  --mealmate-accent-hover: #d2e8aa;
+  --mealmate-accent-soft: #d7e9c0;
+  --mealmate-brand-soft: #dce9cf;
+  --mealmate-surface: #ffffff;
+  --mealmate-surface-base: #f7f8f5;
+  --mealmate-surface-soft: #e9eee6;
+  --mealmate-surface-alt: #f1f4ef;
+  --mealmate-surface-warm: #f4eee2;
+  --mealmate-ink: #17231d;
+  --mealmate-ink-soft: #34463a;
+  --mealmate-muted: #526357;
+  --mealmate-border: #d9e1d6;
+  --mealmate-border-subtle: #edf0eb;
+  --mealmate-overlay: #102319;
+  --mealmate-warm-accent: #e1a86d;
+  --mealmate-warning-soft: #ffe2bc;
+  --mealmate-ink-input: #203329;
+  --mealmate-muted-input: var(--mealmate-muted);
+  --mealmate-focus: #76954f;
+  --mealmate-toast-bg: #183b2d;
+  --mealmate-toast-ink: #ffffff;
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--mealmate-ink);
+  background: var(--mealmate-surface-base);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme inline {
+  --color-brand: var(--mealmate-brand);
+  --color-brand-strong: var(--mealmate-brand-strong);
+  --color-brand-hover: var(--mealmate-brand-hover);
+  --color-accent: var(--mealmate-accent);
+  --color-accent-hover: var(--mealmate-accent-hover);
+  --color-accent-soft: var(--mealmate-accent-soft);
+  --color-brand-soft: var(--mealmate-brand-soft);
+  --color-surface: var(--mealmate-surface);
+  --color-surface-base: var(--mealmate-surface-base);
+  --color-surface-soft: var(--mealmate-surface-soft);
+  --color-surface-alt: var(--mealmate-surface-alt);
+  --color-surface-warm: var(--mealmate-surface-warm);
+  --color-ink: var(--mealmate-ink);
+  --color-ink-soft: var(--mealmate-ink-soft);
+  --color-muted: var(--mealmate-muted);
+  --color-border: var(--mealmate-border);
+  --color-border-subtle: var(--mealmate-border-subtle);
+  --color-overlay: var(--mealmate-overlay);
+  --color-warm-accent: var(--mealmate-warm-accent);
+  --color-warning-soft: var(--mealmate-warning-soft);
+  --color-ink-input: var(--mealmate-ink-input);
+  --color-muted-input: var(--mealmate-muted-input);
+  --color-focus: var(--mealmate-focus);
+  --color-toast: var(--mealmate-toast-bg);
+  --color-toast-ink: var(--mealmate-toast-ink);
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  --mealmate-surface: #1b2820;
+  --mealmate-surface-base: #111a15;
+  --mealmate-surface-soft: #243329;
+  --mealmate-surface-alt: #293a2f;
+  --mealmate-ink: #e7eee7;
+  --mealmate-ink-soft: #c1d0c2;
+  --mealmate-muted: #a6b5a8;
+  --mealmate-border: #34453a;
+  --mealmate-border-subtle: #34453a;
+  --mealmate-brand-strong: #c4df91;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html.dark,
+html.dark body {
+  background: var(--mealmate-surface-base);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.eyebrow {
+  color: var(--mealmate-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--mealmate-focus);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: 0.75rem;
+  background: var(--mealmate-brand);
+  padding: 0.75rem 1rem;
+  color: white;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.recipe-modal-backdrop {
+  animation: modal-backdrop-in 180ms ease-out both;
+}
+
+.recipe-modal-backdrop-closing {
+  animation: modal-backdrop-out 170ms ease-in both;
+}
+
+.recipe-modal-dialog {
+  scroll-behavior: smooth;
+  animation: modal-dialog-in 200ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.recipe-modal-dialog-closing {
+  animation: modal-dialog-out 160ms ease-in both;
+}
+
+@keyframes modal-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-backdrop-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modal-dialog-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes modal-dialog-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(6px) scale(0.99); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .recipe-modal-backdrop,
+  .recipe-modal-backdrop-closing,
+  .recipe-modal-dialog,
+  .recipe-modal-dialog-closing {
+    animation-duration: 1ms;
+  }
+}

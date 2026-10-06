@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "oxc", "jsx-a11y"],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "jsx_a11y/alt-text": "error",
+    "jsx_a11y/aria-props": "error",
+    "jsx_a11y/aria-proptypes": "error",
+    "jsx_a11y/aria-unsupported-elements": "error",
+    "jsx_a11y/label-has-associated-control": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
